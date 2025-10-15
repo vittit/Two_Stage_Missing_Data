@@ -1,3 +1,5 @@
+library(vroom)
+
 shinyServer(function(input, output, session) {
   
   # Data upload and checks 
