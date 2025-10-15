@@ -22,7 +22,7 @@ fluidPage(
   ## Data with missingness
   fileInput("Upload", label = tags$span(style = "font-weight: bold; font-size: 20px;", "Upload File with Missing Data", accept = ".csv")
         ),
-  
+
           
   ## Items for Outcome Variable
   uiOutput("outcome_var"),
@@ -30,7 +30,9 @@ fluidPage(
   ## Predictors 
   uiOutput("predictor_var"), 
   
+  actionButton("submit", "Submit Selections"),
     ),
+  
 
   column(9,
     h5("Data Preview", style = "font-size: 20px"),
