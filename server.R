@@ -5,12 +5,12 @@ shinyServer(function(input, output, session) {
   # Data upload and checks 
   data <- reactive({
     req(input$Upload)
-    
     ext <- tools::file_ext(input$Upload$name)
     switch(ext,
            csv = vroom::vroom(input$Upload$datapath, delim = ","),
            validate("Invalid file; Please upload a .csv file")
     )
+  read.csv(input$Upload$datapath)  
     
   })
   
@@ -25,7 +25,8 @@ shinyServer(function(input, output, session) {
     selectInput(
       inputId = "outcome_variable",
       label = "Select Outcome Variable", 
-      choices = names(data())
+      choices = names(data()),
+      selected = NULL
     )
   })
   
@@ -43,6 +44,3 @@ shinyServer(function(input, output, session) {
 }
 
 )
-
-# Run the application 
-shinyApp(ui = ui, server = server)
