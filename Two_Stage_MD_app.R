@@ -11,8 +11,8 @@ ui <-  dashboardPage(
     dashboardHeader(title = "Missing Data"),
     dashboardSidebar(
       sidebarMenu(
-        menuItem("File Input", tabName = "start", icon = icon("folder")),
-        menuItem("Results", tabName = "start", icon = icon("folder"))
+        menuItem("File Input", tabName = "file_input", icon = icon("folder")),
+        menuItem("Results", tabName = "results", icon = icon("chart-area"))
       )
     ),
     
@@ -20,15 +20,15 @@ dashboardBody(
   tabItems(
     
   # Inputs
-    tabItem(tabName = "start",
+    tabItem(tabName = "file_input",
       fluidRow(
             box(
               width = 4, status = "primary",
-              title = "1. Upload Data", solidHeader = TRUE,
+              title = "1. Upload Data ", solidHeader = TRUE,
               column(12,
 
        ## Data with missingness
-       fileInput("Upload", label = tags$span(style = "font-weight: bold; font-size: 20px;", "Upload File with Missing Data", accept = ".csv")
+       fileInput("Upload", label = tags$span(style = "font-weight: bold; font-size: 20px;", "Upload File with Missing Data (currenlty .csv extentions only)", accept = ".csv")
        )
       )
     ),
@@ -62,6 +62,8 @@ dashboardBody(
       )
      )
     )
+    
+   ##  tabItem(tabName = "results",
    )
   )
  )
